@@ -1,0 +1,31 @@
+main_tasks:
+  - text: 'Are there flowers present in the image?'
+    variable: 'flowers_present'
+    responses:
+      - text: '"y": Yes'
+        action: keypress{y ~ Y}
+        jump-to: flowers_present_tasks
+      - text: '"n": No'
+        action: keypress{n ~ N}
+
+flowers_present_tasks:
+  - text: 'How many flowers are present?'
+    variable: 'num_flowers'
+    default: ''
+    responses:
+      - text: 'Enter number of flowers'
+        action: numberinput
+
+  - text: 'How many of the present flowers were segmented?'
+    variable: 'num_segmented'
+    default: ''
+    responses:
+      - text: 'Enter number of segmented flowers'
+        action: numberinput
+
+  - text: 'How many of those segmentations were acceptable?'
+    variable: 'num_acceptable'
+    default: ''
+    responses:
+      - text: 'Enter number of acceptable segmentations'
+        action: numberinput
